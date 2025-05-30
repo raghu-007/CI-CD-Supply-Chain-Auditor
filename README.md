@@ -64,8 +64,7 @@ Contributions are highly welcome! Please read `CONTRIBUTING.md` for guidelines. 
 
 ## 📜 License
 
-This project is licensed under the [MIT License]
-
+This project is licensed under the Apache License 2.0. See the LICENSE file for the full license text.
 ## ⚠️ Disclaimer
 
 This tool is for auditing and educational purposes. Always ensure you have authorization before scanning any systems or pipelines.

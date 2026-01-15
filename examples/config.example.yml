@@ -1,0 +1,71 @@
+# CI-CD-Supply-Chain-Auditor Configuration
+# Copy this file to config.yml and customize as needed
+
+# Logging level: DEBUG, INFO, WARNING, ERROR
+log_level: INFO
+
+# Enable verbose output
+verbose: false
+
+# CI/CD platform to analyze: github_actions, gitlab_ci, auto
+platform: auto
+
+# Check configuration
+checks:
+  # Enable or disable all checks
+  enabled: true
+  
+  # Minimum severity to report: low, medium, high, critical
+  severity_threshold: low
+  
+  # Custom patterns to detect (regex)
+  custom_patterns: []
+
+# Report configuration
+report:
+  # Output format: json, markdown, html, all
+  format: json
+  
+  # Output directory for reports
+  output_dir: ./reports
+  
+  # Include passed checks in report
+  include_passed_checks: false
+  
+  # Include remediation suggestions
+  include_remediation: true
+  
+  # Maximum findings per check (to prevent huge reports)
+  max_findings_per_check: 100
+
+# Scan configuration
+scan:
+  # Maximum file size to process (MB)
+  max_file_size_mb: 10.0
+  
+  # Maximum number of files to scan
+  max_files: 1000
+  
+  # Follow symbolic links (security risk!)
+  follow_symlinks: false
+  
+  # Include hidden files/directories
+  include_hidden: true
+  
+  # Patterns to exclude from scanning
+  exclude_patterns:
+    - node_modules
+    - .git
+    - __pycache__
+    - "*.pyc"
+    - .venv
+    - venv
+    - dist
+    - build
+
+# GitHub integration (for remote scanning)
+# Token should be set via AUDITOR_GITHUB__TOKEN environment variable
+github:
+  api_url: https://api.github.com
+  timeout_seconds: 30
+  verify_ssl: true

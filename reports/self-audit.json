@@ -1,0 +1,341 @@
+{
+  "schema_version": "1.0",
+  "audit": {
+    "target": "D:\\Software Development & Engineering\\CI-CD-Supply-Chain-Auditor",
+    "target_type": "local",
+    "started_at": "2026-01-15T09:46:02.528483+00:00",
+    "completed_at": "2026-01-15T09:46:02.554795+00:00",
+    "duration_seconds": 0.026312,
+    "auditor_version": "1.0.0",
+    "platform": "auto"
+  },
+  "summary": {
+    "passed": false,
+    "total_findings": 13,
+    "highest_severity": "high",
+    "severity_counts": {
+      "info": 0,
+      "low": 5,
+      "medium": 7,
+      "high": 1,
+      "critical": 0
+    },
+    "checks_run": 6,
+    "checks_passed": 2
+  },
+  "findings": [
+    {
+      "id": "permissions-001",
+      "title": "Write permission on sensitive scope: security-events",
+      "severity": "medium",
+      "description": "The job:security grants write access to 'security-events'. This is a sensitive permission that should be carefully reviewed.",
+      "location": {
+        "file": "D:\\Software Development & Engineering\\CI-CD-Supply-Chain-Auditor\\.github\\workflows\\ci.yml",
+        "line_start": null,
+        "line_end": null
+      },
+      "remediation": "Verify that write access to 'security-events' is truly required. Consider using read-only access if writes aren't needed.",
+      "references": [
+        "https://docs.github.com/en/actions/security-guides/automatic-token-authentication",
+        "https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs"
+      ],
+      "cwe_ids": [
+        "CWE-250",
+        "CWE-269"
+      ],
+      "evidence": ""
+    },
+    {
+      "id": "actions-001",
+      "title": "Action 'codecov/codecov-action@v4' not pinned to SHA",
+      "severity": "high",
+      "description": "The action 'codecov/codecov-action' uses version 'v4' which is a mutable tag. Tags can be moved to point to different commits, potentially introducing malicious code.",
+      "location": {
+        "file": "D:\\Software Development & Engineering\\CI-CD-Supply-Chain-Auditor\\.github\\workflows\\ci.yml",
+        "line_start": null,
+        "line_end": null
+      },
+      "remediation": "Pin the action to a specific SHA:\nuses: codecov/codecov-action@<full-commit-sha>  # v4\n\nYou can find the SHA by checking the action's releases on GitHub.",
+      "references": [
+        "https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions",
+        "https://securitylab.github.com/research/github-actions-preventing-pwn-requests/"
+      ],
+      "cwe_ids": [
+        "CWE-829",
+        "CWE-94"
+      ],
+      "evidence": ""
+    },
+    {
+      "id": "actions-001",
+      "title": "Action from unverified source: codecov",
+      "severity": "low",
+      "description": "The action 'codecov/codecov-action@v4' is from 'codecov' which is not a verified GitHub Actions publisher. While this doesn't mean the action is malicious, extra caution is advised.",
+      "location": {
+        "file": "D:\\Software Development & Engineering\\CI-CD-Supply-Chain-Auditor\\.github\\workflows\\ci.yml",
+        "line_start": null,
+        "line_end": null
+      },
+      "remediation": "Review the action's source code at https://github.com/codecov/codecov-action to ensure it's trustworthy. Consider forking the action to your organization for added control.",
+      "references": [
+        "https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions",
+        "https://securitylab.github.com/research/github-actions-preventing-pwn-requests/"
+      ],
+      "cwe_ids": [
+        "CWE-829",
+        "CWE-94"
+      ],
+      "evidence": ""
+    },
+    {
+      "id": "dependencies-001",
+      "title": "pip install without hash verification",
+      "severity": "low",
+      "description": "Python dependencies are being installed without hash verification. This means the integrity of downloaded packages isn't verified.",
+      "location": {
+        "file": "D:\\Software Development & Engineering\\CI-CD-Supply-Chain-Auditor\\.github\\workflows\\ci.yml",
+        "line_start": null,
+        "line_end": null
+      },
+      "remediation": "Use pip with hash checking:\n1. Generate hashes: pip-compile --generate-hashes\n2. Install with: pip install --require-hashes -r requirements.txt",
+      "references": [
+        "https://cheatsheetseries.owasp.org/cheatsheets/CI_CD_Security_Cheat_Sheet.html",
+        "https://slsa.dev/spec/v1.0/requirements"
+      ],
+      "cwe_ids": [
+        "CWE-829",
+        "CWE-494"
+      ],
+      "evidence": ""
+    },
+    {
+      "id": "dependencies-001",
+      "title": "pip install without hash verification",
+      "severity": "low",
+      "description": "Python dependencies are being installed without hash verification. This means the integrity of downloaded packages isn't verified.",
+      "location": {
+        "file": "D:\\Software Development & Engineering\\CI-CD-Supply-Chain-Auditor\\.github\\workflows\\ci.yml",
+        "line_start": null,
+        "line_end": null
+      },
+      "remediation": "Use pip with hash checking:\n1. Generate hashes: pip-compile --generate-hashes\n2. Install with: pip install --require-hashes -r requirements.txt",
+      "references": [
+        "https://cheatsheetseries.owasp.org/cheatsheets/CI_CD_Security_Cheat_Sheet.html",
+        "https://slsa.dev/spec/v1.0/requirements"
+      ],
+      "cwe_ids": [
+        "CWE-829",
+        "CWE-494"
+      ],
+      "evidence": ""
+    },
+    {
+      "id": "dependencies-001",
+      "title": "pip install without hash verification",
+      "severity": "low",
+      "description": "Python dependencies are being installed without hash verification. This means the integrity of downloaded packages isn't verified.",
+      "location": {
+        "file": "D:\\Software Development & Engineering\\CI-CD-Supply-Chain-Auditor\\.github\\workflows\\ci.yml",
+        "line_start": null,
+        "line_end": null
+      },
+      "remediation": "Use pip with hash checking:\n1. Generate hashes: pip-compile --generate-hashes\n2. Install with: pip install --require-hashes -r requirements.txt",
+      "references": [
+        "https://cheatsheetseries.owasp.org/cheatsheets/CI_CD_Security_Cheat_Sheet.html",
+        "https://slsa.dev/spec/v1.0/requirements"
+      ],
+      "cwe_ids": [
+        "CWE-829",
+        "CWE-494"
+      ],
+      "evidence": ""
+    },
+    {
+      "id": "dependencies-001",
+      "title": "Setup action without caching",
+      "severity": "medium",
+      "description": "The action 'actions/setup-python' is used without caching. This can slow down builds and increase network requests.",
+      "location": {
+        "file": "D:\\Software Development & Engineering\\CI-CD-Supply-Chain-Auditor\\.github\\workflows\\ci.yml",
+        "line_start": null,
+        "line_end": null
+      },
+      "remediation": "Consider enabling caching for faster builds.",
+      "references": [
+        "https://cheatsheetseries.owasp.org/cheatsheets/CI_CD_Security_Cheat_Sheet.html",
+        "https://slsa.dev/spec/v1.0/requirements"
+      ],
+      "cwe_ids": [
+        "CWE-829",
+        "CWE-494"
+      ],
+      "evidence": ""
+    },
+    {
+      "id": "dependencies-001",
+      "title": "pip install without hash verification",
+      "severity": "low",
+      "description": "Python dependencies are being installed without hash verification. This means the integrity of downloaded packages isn't verified.",
+      "location": {
+        "file": "D:\\Software Development & Engineering\\CI-CD-Supply-Chain-Auditor\\.github\\workflows\\ci.yml",
+        "line_start": null,
+        "line_end": null
+      },
+      "remediation": "Use pip with hash checking:\n1. Generate hashes: pip-compile --generate-hashes\n2. Install with: pip install --require-hashes -r requirements.txt",
+      "references": [
+        "https://cheatsheetseries.owasp.org/cheatsheets/CI_CD_Security_Cheat_Sheet.html",
+        "https://slsa.dev/spec/v1.0/requirements"
+      ],
+      "cwe_ids": [
+        "CWE-829",
+        "CWE-494"
+      ],
+      "evidence": ""
+    },
+    {
+      "id": "slsa-001",
+      "title": "Workflow meets SLSA Level 2 but not Level 3",
+      "severity": "medium",
+      "description": "This workflow meets SLSA Level 2 but lacks Level 3 requirements for hardened builds and signed provenance.",
+      "location": {
+        "file": "D:\\Software Development & Engineering\\CI-CD-Supply-Chain-Auditor\\.github\\workflows\\ci.yml",
+        "line_start": null,
+        "line_end": null
+      },
+      "remediation": "To meet SLSA Level 3:\n1. Use GitHub-hosted runners (ephemeral environment)\n2. Consider using container jobs for isolation\n3. Generate signed provenance using:\n   - slsa-framework/slsa-github-generator\n   - actions/attest-build-provenance\n4. Enable artifact signing",
+      "references": [
+        "https://slsa.dev/",
+        "https://slsa.dev/spec/v1.0/requirements",
+        "https://github.com/slsa-framework/slsa-github-generator"
+      ],
+      "cwe_ids": [],
+      "evidence": ""
+    },
+    {
+      "id": "slsa-001",
+      "title": "Build workflow without provenance generation",
+      "severity": "medium",
+      "description": "This appears to be a build or release workflow but does not generate SLSA provenance. Provenance provides a tamper-proof record of how artifacts were built.",
+      "location": {
+        "file": "D:\\Software Development & Engineering\\CI-CD-Supply-Chain-Auditor\\.github\\workflows\\ci.yml",
+        "line_start": null,
+        "line_end": null
+      },
+      "remediation": "Consider using the official SLSA provenance generator:\n1. slsa-framework/slsa-github-generator\n2. actions/attest-build-provenance\n\nThese create signed provenance attestations for your artifacts.",
+      "references": [
+        "https://slsa.dev/",
+        "https://slsa.dev/spec/v1.0/requirements",
+        "https://github.com/slsa-framework/slsa-github-generator"
+      ],
+      "cwe_ids": [],
+      "evidence": ""
+    },
+    {
+      "id": "slsa-001",
+      "title": "Job 'test' has network access without isolation",
+      "severity": "medium",
+      "description": "This job appears to make network requests but doesn't use container isolation. For SLSA Level 3+, consider using containerized builds with explicit network policies.",
+      "location": {
+        "file": "D:\\Software Development & Engineering\\CI-CD-Supply-Chain-Auditor\\.github\\workflows\\ci.yml",
+        "line_start": null,
+        "line_end": null
+      },
+      "remediation": "Consider:\n1. Using a container for the job\n2. Pre-caching dependencies\n3. Using a network-restricted environment",
+      "references": [
+        "https://slsa.dev/",
+        "https://slsa.dev/spec/v1.0/requirements",
+        "https://github.com/slsa-framework/slsa-github-generator"
+      ],
+      "cwe_ids": [],
+      "evidence": ""
+    },
+    {
+      "id": "slsa-001",
+      "title": "Job 'security' has network access without isolation",
+      "severity": "medium",
+      "description": "This job appears to make network requests but doesn't use container isolation. For SLSA Level 3+, consider using containerized builds with explicit network policies.",
+      "location": {
+        "file": "D:\\Software Development & Engineering\\CI-CD-Supply-Chain-Auditor\\.github\\workflows\\ci.yml",
+        "line_start": null,
+        "line_end": null
+      },
+      "remediation": "Consider:\n1. Using a container for the job\n2. Pre-caching dependencies\n3. Using a network-restricted environment",
+      "references": [
+        "https://slsa.dev/",
+        "https://slsa.dev/spec/v1.0/requirements",
+        "https://github.com/slsa-framework/slsa-github-generator"
+      ],
+      "cwe_ids": [],
+      "evidence": ""
+    },
+    {
+      "id": "slsa-001",
+      "title": "Job 'build' has network access without isolation",
+      "severity": "medium",
+      "description": "This job appears to make network requests but doesn't use container isolation. For SLSA Level 3+, consider using containerized builds with explicit network policies.",
+      "location": {
+        "file": "D:\\Software Development & Engineering\\CI-CD-Supply-Chain-Auditor\\.github\\workflows\\ci.yml",
+        "line_start": null,
+        "line_end": null
+      },
+      "remediation": "Consider:\n1. Using a container for the job\n2. Pre-caching dependencies\n3. Using a network-restricted environment",
+      "references": [
+        "https://slsa.dev/",
+        "https://slsa.dev/spec/v1.0/requirements",
+        "https://github.com/slsa-framework/slsa-github-generator"
+      ],
+      "cwe_ids": [],
+      "evidence": ""
+    }
+  ],
+  "check_results": [
+    {
+      "check_id": "secrets-001",
+      "check_name": "Secrets Exposure Detection",
+      "passed": true,
+      "finding_count": 0,
+      "duration_ms": 0.24,
+      "error": null
+    },
+    {
+      "check_id": "permissions-001",
+      "check_name": "Permissions Analysis",
+      "passed": false,
+      "finding_count": 1,
+      "duration_ms": 0.07,
+      "error": null
+    },
+    {
+      "check_id": "actions-001",
+      "check_name": "Third-Party Actions Security",
+      "passed": false,
+      "finding_count": 2,
+      "duration_ms": 0.12,
+      "error": null
+    },
+    {
+      "check_id": "runners-001",
+      "check_name": "Runner Configuration Security",
+      "passed": true,
+      "finding_count": 0,
+      "duration_ms": 0.02,
+      "error": null
+    },
+    {
+      "check_id": "dependencies-001",
+      "check_name": "Dependency Security",
+      "passed": false,
+      "finding_count": 5,
+      "duration_ms": 0.32,
+      "error": null
+    },
+    {
+      "check_id": "slsa-001",
+      "check_name": "SLSA Compliance Check",
+      "passed": false,
+      "finding_count": 5,
+      "duration_ms": 0.18,
+      "error": null
+    }
+  ]
+}

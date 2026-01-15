@@ -1,1 +1,24 @@
+# CI-CD-Supply-Chain-Auditor Dependencies
+# Pinned versions for reproducibility and security
 
+# CLI Framework
+click>=8.1.0,<9.0.0
+
+# YAML Parsing (always use safe_load!)
+PyYAML>=6.0.1,<7.0.0
+
+# Git Operations
+gitpython>=3.1.40,<4.0.0
+
+# HTTP Client
+requests>=2.31.0,<3.0.0
+
+# Data Validation
+pydantic>=2.5.0,<3.0.0
+pydantic-settings>=2.1.0,<3.0.0
+
+# Templating (with autoescape for security)
+jinja2>=3.1.2,<4.0.0
+
+# Terminal Formatting
+rich>=13.7.0,<14.0.0
